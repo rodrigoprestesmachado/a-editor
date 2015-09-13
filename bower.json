@@ -13,7 +13,8 @@
   ],
   "keywords": [
     "editor",
-    "accessible"
+    "accessible", 
+    "web-components"
   ],
   "license": "Apache",
   "main": "index.html",
