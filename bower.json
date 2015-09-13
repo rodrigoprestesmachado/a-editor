@@ -16,5 +16,13 @@
     "editor",
     "accessible"
   ],
-  "license": "Apache"
+  "license": "Apache",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
