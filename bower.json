@@ -1,6 +1,5 @@
 {
   "name": "a-editor",
-  "version": "0.0.1",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.0.0"
   },
@@ -22,6 +21,8 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "polymer",
+    "webcomponentsjs",
     "test",
     "tests"
   ]
