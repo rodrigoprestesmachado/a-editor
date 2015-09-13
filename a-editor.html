@@ -1,0 +1,73 @@
+<!--
+Copyright 2015, Rodrigo Prestes Machado
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+ 	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<link rel="import" href="polymer/polymer.html">
+
+<dom-module id="a-editor">
+  <template>
+  	
+  		<link rel="stylesheet" type="text/css" href="a-editor.css">
+	    
+	     <div id="textEditor" class="textEditor" role="application">
+	        <nav id="menu" class="menu" role="menubar" tabindex="-1" >
+	            <div id="sizeLabel" class="hide">Campo para selecionar o tamanho da letra</div>
+	            <select id="size" on-change="stylize" data-args="size,this.value" 
+	            	role="menuItem" tabindex="2" aria-labelledby="sizeLabel" >
+	                <option value="0.75em">12</option>
+	                <option value="0.875em">14</option>
+	                <option value="1em" selected="selected">16</option>
+	                <option value="1.125em">18</option>
+	                <option value="1.25em">20</option>
+	                <option value="1.875em">30</option>
+	                <option value="2.5em">40</option>
+	            </select>
+	            <div id="fontLabel" class="hide">Campo para selecionar o tipo da letra</div>
+	            <select id="font" on-change="stylize" data-args="font,this.value" 
+	            	role="menuItem" tabindex="3" aria-labelledby="fontLabel" >
+	                <option value="arial" selected="selected">Arial</option>
+	                <option value="times">Times New Roman</option>
+	            </select>
+	            <div id="boldLabel" class="hide">Botão para deixar um texto em negrito</div>
+	            <button role="menuItem" on-click="stylize" data-args="bold,bold" 
+	            	tabindex="4" accesskey="b" aria-labelledby="boldLabel">B</button>
+	            
+	            <div id="italicLabel" class="hide">Botão para colocar um texto em itálico</div>
+	            <button role="menuItem" on-click="stylize" data-args="italic,italic" 
+	            	tabindex="5" accesskey="i" aria-labelledby="italicLabel">I</button>
+	            
+	            <div id="underlineLabel" class="hide">Botão para sublinhar um texto</div>
+	            <button role="menuItem" on-click="stylize" data-args="underline,underline" 
+	            	tabindex="6" accesskey="u" aria-labelledby="underlineLabel">U</button>
+	            
+	            <div id="colorLabel" class="hide">Botão para selecionar uma cor para o texto</div>
+	            <input id="color" type="color" on-change="stylize"  data-args="color,this.value" 
+	            	value="#000000" tabindex="7" aria-labelledby="colorLabel" />
+	        </nav>
+	        <article id="paper" class="paper" contentEditable="true" role="textbox" 
+	            aria-labelledby="paperDescription" tabindex="1" aria-multiline="true" onpaste="expe_paste()">
+	        </article>
+	        
+	        <div id="paperDescription" tabindex="-1" class="hide" >
+	            Área para você escrever um documento
+            </div>
+            <div id="styleAlert" tabindex="-1" class="hide" >
+	            Esse elemento possui um estilo, por exemplo, negrito
+            </div>
+        </div>
+	
+	</template>
+</dom-module>
+
+<script src="a-editor.js"></script>
