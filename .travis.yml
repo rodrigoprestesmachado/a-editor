@@ -3,8 +3,3 @@ node_js:
   - "0.12"
 before_script:
   - npm install -g bower
-  - bower install a-editor
-deploy:
-  provider: heroku
-  api_key: "58b38f1a-604a-4e6c-9c2e-c630eccf1886"
-  app: a-editor
