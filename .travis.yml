@@ -4,4 +4,4 @@ node_js:
 before_script:
   - npm install -g bower
   - bower install a-editor
-script: "Hello travis"
+script:
