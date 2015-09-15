@@ -8,4 +8,4 @@ Accessible Rich Internet Applications Text Editor
 bower install a-editor
 ```
 # Demo
-[Go to the demo ](http://code.inf.poa.ifrs.edu.br/a-editor/bower_components/a-editor/index.html).
+[Check it live!](http://code.inf.poa.ifrs.edu.br/a-editor/bower_components/a-editor/index.html).
