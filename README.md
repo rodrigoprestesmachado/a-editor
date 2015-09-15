@@ -2,7 +2,7 @@
 
 # a-editor
 Accessible Rich Internet Applications Text Editor. It is implemented as a Polymer 
-component and still in development of the fisrt realise.
+component and still in development of the first realise.
 
 # install
 ```schell 
