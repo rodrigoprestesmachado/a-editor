@@ -1,7 +1,8 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rodrigoprestesmachado/a-editor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[![Build Status](https://travis-ci.org/rodrigoprestesmachado/a-editor.svg?branch=master)](https://travis-ci.org/rodrigoprestesmachado/a-editor)
 
 # a-editor
-Accessible Rich Internet Applications Text Editor
+Accessible Rich Internet Applications Text Editor. It is implemented as a Polymer 
+component and still in development of the fisrt realise.
 
 # install
 ```schell 
