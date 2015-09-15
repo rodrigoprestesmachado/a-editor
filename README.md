@@ -1,6 +1,8 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rodrigoprestesmachado/a-editor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[![Build Status](https://travis-ci.org/rodrigoprestesmachado/a-editor.svg?branch=master)](https://travis-ci.org/rodrigoprestesmachado/a-editor)
 
 # a-editor
+
+[![Join the chat at https://gitter.im/rodrigoprestesmachado/a-editor](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rodrigoprestesmachado/a-editor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Accessible Rich Internet Applications Text Editor
 
 # install
