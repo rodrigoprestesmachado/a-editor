@@ -1,0 +1,10 @@
+enUs = {
+    sizeLabel: "Field to select the font size",
+    fontLabel: "Field to select the font type",
+    boldLabel: "Button to put the selected text in bold",
+    italicLabel: "Button to put the selected text in italics",
+    underlineLabel:"Button to underline the select text", 
+    colorLabel: "Button to select a color for the selected text",
+    languageLabel: "Choose the text editor language",
+    paperDescription: "Area to write a document"
+};

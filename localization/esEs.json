@@ -1,0 +1,10 @@
+esEs = {
+    sizeLabel: "Campo para seleccionar el tamaño de la fuente",
+    fontLabel: "Campo para seleccionar el tipo de letra",
+    boldLabel: "Botón para colocar un texto en negrita",
+    italicLabel: "Botón para poner el texto en cursiva",
+    underlineLabel:"Botón para subrayar el texto", 
+    colorLabel: "Botón para seleccionar un color para el texto",
+    languageLabel: "Elija el idioma editor de texto",
+    paperDescription: "Área para escribir un documento"
+};
