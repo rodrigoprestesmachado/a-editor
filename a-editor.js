@@ -15,7 +15,15 @@
  */
 Polymer({
   	
-  	is: "a-editor", 
+  	is: "a-editor",
+  	
+  	localizaton: "",
+  	language: "",
+  	
+  	ready: function(){
+  		this.language = this.getBrowserLanguage();
+  		this.localizaton = this.loadLocalization();
+  	},
   	
   	stylize: function(e){
   	
@@ -128,9 +136,8 @@ Polymer({
 		                    	range.insertNode(startNode);
 		                    }
 		                }
-		                else{
-		                	//Invert style
-		                    //TODO
+		                else {
+		                	//TODO Invert style
 		                    alert("Ok computer!");
 		                }	
 					}
@@ -163,16 +170,25 @@ Polymer({
   	   
 	},
 	
-	
-	createStyleNode:  function(text, styleType, styleValue) {
+	/**
+	 *  //TODO Refactoring
+	 **/
+	createStyleNode:  function(selectionText, styleType, styleValue) {
 		var node = document.createElement("span");
 		node.setAttribute("aria-describedby","styleAlert");
 		node.setAttribute("class","aural");
-		node.appendChild(node.appendChild(document.createTextNode(text)));
+		node.appendChild(node.appendChild(document.createTextNode(selectionText)));
 		return this.applyStyle(node, styleType, styleValue);
 	},
 	
-	
+	/**
+	 * Apply one style in one span node
+	 * 
+	 * @param {Node} Onde node
+	 * @param (String) The style type (according the supported list)
+	 * @param (String) The style value
+	 * @return {Node} Node with style (css)
+	 **/
 	applyStyle: function(node, styleType, style) {
 		
 		if (styleType == "bold")
@@ -215,30 +231,6 @@ Polymer({
 	},
 
 	/**
-	 * Method used to identify the type of browser
-	 * 
-	 * @return {String} One String with the browser name
-	 **/
-	browser: function(){
-		var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-		if(isOpera)
-			return "opera";
-			
-	    if (typeof InstallTrigger !== 'undefined')
-	    	return "firefox";
-	    
-		if (Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0)
-			return "safari";
-			
-	    if (!!window.chrome && !isOpera)
-	    	return "chrome";
-	    	
-		if (false || !!document.documentMode){
-			return "ie";
-		}
-	},
-	
-	/**
 	 * Method used to recover the span node. Each browser implement the
 	 * Range API with different ways, so it was necessary to create this method to 
 	 * deal with these differences.
@@ -273,7 +265,94 @@ Polymer({
 				}
 			}
 		}
+	},
+
+	/**
+	 * Verify the browser language and returns an object with localized editor 
+	 * messages
+	 * 
+	 * @return {Object} Object with localized editor messages
+	 **/
+	loadLocalization: function() {
+		if (this.language.indexOf("en") > -1) {
+			this.changeSelectedBoxLanguage("en");
+			return enUs;
+		}
+		else if (this.language.indexOf("pt") > -1) {
+			this.changeSelectedBoxLanguage("pt");
+			return ptBr;
+		}
+		else if (this.language.indexOf("es") > -1){
+			this.changeSelectedBoxLanguage("es");
+			return esEs;
+		}
+		else{
+			// default language
+			this.changeSelectedBoxLanguage("en");
+			return enUs; 
+		} 
+	}, 
+	
+	/**
+	 * Verify the browser language
+	 * 
+	 * @return {String} The browser language
+	 **/
+	getBrowserLanguage: function(){
+		var language = window.navigator.userLanguage || window.navigator.language;
+		return language.toLowerCase();
+	},
+	
+	/**
+	 * Change the editor message manually
+	 * 
+	 * @param {Event} The browser event object 
+	 **/
+	changeLanguage: function(e){
+		var languageCode = e.target.value;
 		
+		if (languageCode == "en")
+			this.localizaton = enUs;
+		else if (languageCode == "pt")
+			this.localizaton = ptBr;
+		else if (languageCode == "es")
+			this.localizaton = esEs;
+		
+		// Change the select box with the current language	
+		this.changeSelectedBoxLanguage(languageCode);
+	},
+	
+	/**
+	 * Just change the selected language in select box
+	 * 
+	 * @param {Strig} The language code, for example, en, pt and es.
+	 */
+	changeSelectedBoxLanguage: function(languageCode){
+		document.getElementById(languageCode).selected = "true";
+	},
+	
+	/**
+	 * Method used to identify the type of browser
+	 * 
+	 * @return {String} One string to identify the browser type
+	 **/
+	getBrowserType: function(){
+		var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+		if(isOpera)
+			return "opera";
+			
+	    if (typeof InstallTrigger !== 'undefined')
+	    	return "firefox";
+	    
+		if (Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0)
+			return "safari";
+			
+	    if (!!window.chrome && !isOpera)
+	    	return "chrome";
+	    	
+		if (false || !!document.documentMode){
+			return "ie";
+		}
 	},
 	
 	/**
@@ -293,5 +372,6 @@ Polymer({
 		var test = new SpeechSynthesisUtterance('Olá Rodrigo');
 		test.lang = 'pt-br';
 		window.speechSynthesis.speak(test);
-	},
+	}
+	
 });
