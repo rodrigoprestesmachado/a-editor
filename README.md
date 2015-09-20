@@ -5,7 +5,7 @@ Accessible Rich Internet Applications Text Editor. It is implemented as a Polyme
 component and still in development of the first realise.
 
 # Demo
-[Check it live!](http://code.inf.poa.ifrs.edu.br/a-editor/bower_components/a-editor/index.html).
+[Check it live!](http://code.inf.poa.ifrs.edu.br/a-editor/bower_components/a-editor/example).
 
 # Install
 ```schell
