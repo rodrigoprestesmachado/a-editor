@@ -25,6 +25,18 @@ Polymer({
   		this.localizaton = this.loadLocalization();
   	},
   	
+  	/**
+  	 * Creates an event to the listeners
+  	 **/ 
+  	sendHtmlText: function(){
+  		var articleNode = document.querySelector("article");
+  		this.fire("htmlText", {htmlText: articleNode.innerHTML});
+  	},
+  	
+  	/**
+  	 * Stylize a node
+  	 * 
+  	 **/
   	stylize: function(e){
   	
   		// Getting parameters

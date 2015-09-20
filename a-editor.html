@@ -24,7 +24,7 @@ limitations under the License.
 	        <nav id="menu" class="menu" role="menubar" tabindex="-1" >
 	            <div id="sizeLabel" class="hide">{{localizaton.sizeLabel}}</div>
 	            <select id="size" on-change="stylize" data-args="size,this.value" 
-	            	role="menuItem" tabindex="2" aria-labelledby="sizeLabel" >
+	            	role="menuItem" tabindex="3" aria-labelledby="sizeLabel" >
 	                <option value="0.75em">12</option>
 	                <option value="0.875em">14</option>
 	                <option value="1em" selected="selected">16</option>
@@ -36,39 +36,44 @@ limitations under the License.
 	            
 	            <div id="fontLabel" class="hide">{{localizaton.fontLabel}}</div>
 	            <select id="font" on-change="stylize" data-args="font,this.value" 
-	            	role="menuItem" tabindex="3" aria-labelledby="fontLabel" >
+	            	role="menuItem" tabindex="4" aria-labelledby="fontLabel" >
 	                <option value="arial" selected="selected">Arial</option>
 	                <option value="times">Times New Roman</option>
 	            </select>
 	            
 	            <div id="boldLabel" class="hide">{{localizaton.boldLabel}}</div>
 	            <button role="menuItem" on-click="stylize" data-args="bold,bold" 
-	            	tabindex="4" accesskey="b" aria-labelledby="boldLabel">B</button>
+	            	tabindex="5" accesskey="b" aria-labelledby="boldLabel">B</button>
 	            
 	            <div id="italicLabel" class="hide">{{localizaton.italicLabel}}</div>
 	            <button role="menuItem" on-click="stylize" data-args="italic,italic" 
-	            	tabindex="5" accesskey="i" aria-labelledby="italicLabel">I</button>
+	            	tabindex="6" accesskey="i" aria-labelledby="italicLabel">I</button>
 	            
 	            <div id="underlineLabel" class="hide">{{localizaton.underlineLabel}}</div>
 	            <button role="menuItem" on-click="stylize" data-args="underline,underline" 
-	            	tabindex="6" accesskey="u" aria-labelledby="underlineLabel">U</button>
+	            	tabindex="7" accesskey="u" aria-labelledby="underlineLabel">U</button>
 	            
 	            <div id="colorLabel" class="hide">{{localizaton.colorLabel}}</div>
 	            <input id="color" type="color" on-change="stylize"  data-args="color,this.value" 
-	            	value="#000000" tabindex="7" aria-labelledby="colorLabel" />
+	            	value="#000000" tabindex="8" aria-labelledby="colorLabel" />
 	            
 	            <div id="languageLabel" class="hide">{{localizaton.languageLabel}}</div>
 	            <select id="language" on-change="changeLanguage"
-	            	role="menuItem" tabindex="2" aria-labelledby="languageLabel" >
+	            	role="menuItem" tabindex="9" aria-labelledby="languageLabel" >
 	                <option id="en" value="en">English</option>
 	                <option id="es" value="es">Español (ES)</option>
 	                <option id="pt" value="pt">Portugês (BR)</option>
 	            </select>
 	        </nav>
 	        
-	        <article id="paper" class="textArea" contentEditable="true" role="textbox" 
+	        <article id="textArea" class="textArea" contentEditable="true" role="textbox" 
 	            aria-labelledby="paperDescription" tabindex="1" aria-multiline="true" onpaste="expe_paste()">
 	        </article>
+	        
+	        <div id="actionLabel" class="hide">{{localizaton.actionLabel}}</div>
+	        <button role="button" on-click="sendHtmlText" tabindex="2" aria-labelledby="actionLabel">
+	        	<span>{{localizaton.actionButton}}</span>
+	        </button>
 	        
 	        <div id="paperDescription" tabindex="-1" class="hide" >
 	            <span>{{localizaton.paperDescription}}</span>

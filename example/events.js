@@ -14,15 +14,12 @@
  * limitations under the License.
  */
  
-ptBr = {
-    sizeLabel: "Campo para selecionar o tamanho da letra",
-    fontLabel: "Campo para selecionar o tipo de fonte",
-    boldLabel: "Botão para deixar um texto em negrito",
-    italicLabel: "Botão para colocar um texto em itálico",
-    underlineLabel:"Botão para sublinhar um texto", 
-    colorLabel: "Botão para selecionar uma cor para o texto",
-    languageLabel: "Escolha o idioma do editor de texto",
-    paperDescription: "Área para escrever um documento", 
-    actionLabel: "Botão para enviar o texto", 
-    actionButton: "Enviar"
-};
+//Example: listen the event "htmlText" from A-Editor send button
+$(document).ready(function() {
+    
+    var aEditor = document.querySelector("a-editor");
+    aEditor.addEventListener("htmlText", function(e) {
+        alert(e.detail.htmlText);
+    });
+    
+});

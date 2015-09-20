@@ -20,13 +20,23 @@ limitations under the License.
         <title>
 			A-Editor
 		</title>
-        <script type="text/javascript" src="../webcomponentsjs/webcomponents.min.js"></script>
-        <link rel="import" href="a-editor.html">
+		
+		<!-- Import Webcomponents from Polymer -->
+        <script type="text/javascript" src="../../webcomponentsjs/webcomponents.min.js"></script>
+        
+		<!-- Import A-Editor -->
+        <link rel="import" href="../a-editor.html">
+		
+		<!-- Import JQuery (only for listen the event example) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Import an events listener example -->
+        <script type="text/javascript" src="events.js"></script>
         
         <style type="text/css">
-        
             /*
-              a-editor /deep/ .textEditor {
+             CSS Style from outside example:
+             
+             a-editor /deep/ .textEditor {
                 border-style: solid;
                 border-width: 1px;
                 border-color: blue;
@@ -70,11 +80,10 @@ limitations under the License.
                   border-width: 5px;
               }
               */
-              
         </style>
         
     </head>
-	<body  touch-action="auto">
+	<body touch-action="auto">
 	    <a-editor></a-editor>
 	</body>
 </html>
