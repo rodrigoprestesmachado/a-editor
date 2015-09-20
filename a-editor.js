@@ -255,13 +255,13 @@ Polymer({
 	 * Clear the span tags without content
 	 **/
 	clearEmptySpanTags: function(){
-		var paperNode = document.getElementById("paper");
+		var textAreaNode = document.getElementById("textArea");
 		
-		for (var x in paperNode.childNodes){
-			var node = paperNode.childNodes[x];
+		for (var x in textAreaNode.childNodes){
+			var node = textAreaNode.childNodes[x];
 			if (node.localName == "span"){
 				if(node.innerHTML == ""){
-					paperNode.removeChild(node);
+					textAreaNode.removeChild(node);
 				}
 			}
 		}
