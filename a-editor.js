@@ -368,7 +368,70 @@ Polymer({
 	},
 	
 	/**
-	 * Experimental
+	 * Syncronizer
+	 * 
+	 * Handle the keydown event and fire some actions to the listeners
+	 * 
+	 * A-Editor events:
+	 * 
+	 * 1) deleteKey: fires if the backspace activated
+	 * 2) insertKey: fires if any key is activated
+	 * 
+	 * @param {KeyboardEvent} The keyboard event object
+	 */
+	editorKeyDown: function(e){
+		// 8 = backspace
+		if (e.keyCode == 8)
+			this.fire("deleteKey", {});
+		else if ((e.keyCode != 16) && (e.keyCode != 20) && (e.keyCode != 39) &&
+				(e.keyCode != 37) && (e.keyCode != 38) ){
+			
+			// Ignoring some controls keys:
+			// 16 - Shift only, 20 - Caps Lock only, 39 - left, 37 - right, 
+			// 40 - down, 38 - up 
+			
+			
+			var keyCode = null;
+			
+			// getModifierState("CapsLock"): working in Firefox 41
+			//                               not working in Chrome 45.0.2454.101
+			var capsLock = e.getModifierState("CapsLock")
+			
+			// In OSX, if the shift is true (e.shiftKey == true) and Caps Lock 
+			// is true (capsLock == true) the result is in upper case
+			if ((e.shiftKey == false) && (capsLock == false))
+				keyCode = String.fromCharCode(e.keyCode).toLowerCase();
+			else if (((e.shiftKey == true) && (capsLock == false)) || 
+					((e.shiftKey == false) && (capsLock == true)))
+				keyCode = String.fromCharCode(e.keyCode);
+			else
+				keyCode = String.fromCharCode(e.keyCode);
+			
+			this.fire("insertKey", {insertKey: keyCode});
+		}
+		
+	},
+	
+	/**
+	 * Syncronizer
+	 */
+	insertKey: function(key){
+		var article = document.querySelector("article");
+		article.innerHTML = article.innerHTML + key;
+	},
+	
+	/**
+	 * Syncronizer
+	 */
+	deleteKey: function(key){
+		var article = document.querySelector("article");
+		//article.removeChild(article.lastChild);
+		var content = article.innerHTML;
+		article.innerHTML = content.substr(0,content.length - 1);
+	},
+	
+	/**
+	 * Experimental feature
 	 **/
 	expe_paste: function(){
 		if (event.dataTransfer){
@@ -378,7 +441,7 @@ Polymer({
 	},
 	
 	/**
-	 * Experimental
+	 * Experimental feature
 	 **/
 	expe_fala: function(){
 		var test = new SpeechSynthesisUtterance('Olá Rodrigo');

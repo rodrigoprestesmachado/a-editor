@@ -66,8 +66,8 @@ limitations under the License.
 	            </select>
 	        </nav>
 	        
-	        <article id="textArea" class="textArea" contentEditable="true" role="textbox" 
-	            aria-labelledby="paperDescription" tabindex="1" aria-multiline="true" onpaste="expe_paste()">
+	        <article id="textArea" class="textArea" contentEditable="true" role="textbox" on-keydown="editorKeyDown"
+	        	aria-labelledby="paperDescription" tabindex="1" aria-multiline="true" onpaste="expe_paste()">
 	        </article>
 	        
 	        <div id="actionLabel" class="hide">{{localizaton.actionLabel}}</div>
